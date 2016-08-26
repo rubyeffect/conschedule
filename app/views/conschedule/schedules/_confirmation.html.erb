@@ -1,0 +1,38 @@
+<div id="main-region">
+  <div>
+    <div class="header">
+      <h2 class="pts">Confirmed</h2>
+      <div class="mbs phl">
+        You are scheduled with <%= @schedule.contact_name %>.
+      </div>
+    </div>
+    <div class="wrapper narrower">
+      <hr class="dotted mbm">
+      <div class="mbs row">
+        <div class="marker" style="background-color: #fff200"></div>
+        <div class="last-col">
+          <h2><%= @schedule.event_name %></h2>
+        </div>
+      </div>
+      <div class="iconed-text emphasis">
+        <i class="icon-clock"></i> <%= slot_start_end_time(@schedule,"user",true) %>
+      </div>
+      <div class="iconed-text">
+        <i class="icon-globe"></i><%= @schedule.user_time_zone %>
+      </div>
+      <div class="iconed-text">
+        <i class="icon-description"></i>
+        <div class="last-col">
+          <%= @schedule.event_description %>
+        </div>
+      </div>
+      <div class="iconed-text">
+        <i class="icon-location-target"></i>
+        <div class="last-col">
+          <%= @schedule.location_details %>
+        </div>
+      </div>
+      <hr class="dotted mbl">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<% if page.current? %>
+  <span class="current"><%= page %></span>
+<% else %>
+  <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.next? ? 'next' : page.prev? ? 'prev' : nil, class: "page-link"} %>  
+<% end %>

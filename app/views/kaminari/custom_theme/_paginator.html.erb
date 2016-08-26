@@ -1,0 +1,23 @@
+<%= paginator.render do -%>
+  <div class="js-pagination-region row">
+    <div class="pagination right light-theme simple-pagination">
+      <ul>
+        <%= prev_page_tag unless current_page.first? %>
+        <% each_page do |page| -%>
+          <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+            <li class="<%= 'active' if page.current? %>">
+              <%= page_tag page %>
+            </li>  
+          <% elsif !page.was_truncated? -%>
+            <li>
+              <%= gap_tag %>
+            </li>  
+          <% end -%>
+        <% end -%>
+        <li>
+          <%= next_page_tag unless current_page.last? %>
+        </li>  
+      </ul>  
+    </div>  
+  </div>
+<% end -%>

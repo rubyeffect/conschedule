@@ -1,0 +1,11 @@
+<%= form_for @schedule, remote: true, html: {class: 'schedule_wizard'} do |f| %>
+  <fieldset class="section-division">
+    <%= render 'page_one', f: f %>
+  </fieldset>
+  <fieldset class="section-division">
+    <%= render 'page_two' %>
+  </fieldset>
+  <fieldset class="section-division">
+    <%= render 'page_three', f: f %>
+  </fieldset>
+<% end %>

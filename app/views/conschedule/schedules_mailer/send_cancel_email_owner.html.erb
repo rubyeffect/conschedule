@@ -1,0 +1,61 @@
+<div bgcolor="#ffffff" style="background-color:#ffffff">
+  <div style="padding:20px 0;margin:0 auto;max-width:600px">
+    <table style="width:80%;margin:0 auto;padding-bottom:20px;border-bottom:1px dashed #dadada">
+      <tbody>
+        <tr>
+          <td style="text-align:center">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width:80%;margin:30px auto 0;font-size:16px">
+      <tbody>
+        <tr>
+          <td style="color:#666a7a;line-height:22px">
+            <p>Hi <%= Conschedule.contact_name %>,</p>
+            <p style="margin-top:20px">The event below has been canceled.</p>
+            <p style="margin-top:20px">
+              <strong style="font-size:14px">Invitee:</strong>
+              <br>
+              <span style="font-size:16px"><%= @schedule.full_name %></span>
+            </p>
+            <p style="margin-top:20px">
+              <strong style="font-size:14px">Invitee Email:</strong>
+              <br>
+              <span style="font-size:16px">
+                <a href="mailto:<%= @schedule.email %>" target="_blank"><%= @schedule.email %></a>
+              </span>
+            </p>
+            <p style="margin-top:20px">
+              <strong style="font-size:14px">Event Date/Time:</strong>
+              <br>
+              <span style="font-size:16px">
+                <span tabindex="0">
+                  <span><%= @slot_start_time.strftime("%-l:%M%P") %></span>
+                </span> - 
+                <span tabindex="0">
+                  <span><%= @schedule.slot_start_time.strftime("%A, %B %-d, %Y") %></span>
+                </span> (<%= @schedule.app_tz_offset %>)
+              </span>
+            </p>
+            <% unless @schedule.cancel_reason.blank? %>
+              <p style="margin-top:20px;color:#e41600">
+                <strong style="font-size:14px">Cancellation Reason:</strong>
+                <br>
+                <span style="font-size:16px"><%= @schedule.cancel_reason %></span>
+              </p>
+            <% end %>  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width:80%;margin:30px auto;border-top:1px dashed #dadada">
+      <tbody>
+        <tr>
+          <td style="color:#a8a8a8;padding-top:15px">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

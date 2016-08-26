@@ -1,0 +1,2 @@
+require 'gon'
+require 'kaminari'

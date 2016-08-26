@@ -1,0 +1,11 @@
+$(".error_explanation").html("")
+<% unless @schedule.errors.any? %>
+  $(".page-loaded").html("<%= escape_javascript(render 'confirmation') %>")
+<% else %>
+  $(".error_explanation").append("<h2><%= pluralize(@schedule.errors.count, 'error')%> prohibited this form from being saved:</h2>")
+  $(".error_explanation").append("<p class='error-heading'>There were problems with the following fields:</p>")
+  $(".error_explanation").append("<ul class='form-errors'></ul>")
+  <% @schedule.errors.full_messages.each do |message| %>
+    $("ul.form-errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% end %>

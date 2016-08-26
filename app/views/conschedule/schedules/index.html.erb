@@ -1,0 +1,123 @@
+<div id="popup-region"></div>
+<div class="main-wrapper">
+  <div class="body-content">
+    <div id="main-region" id="main-region">
+      <div class="dashboard">
+        <div class="controls">
+          <div class="wrapper">
+            <div class="scopes-row">
+              <div class="js-scope-filter-region">
+                <div class="tabs">
+                  <div class="tab active" data-value="user">
+                    My Schedules
+                  </div>
+                </div>
+              </div>
+              <div class="js-daterangepicker-region">
+                <div class="daterange">
+                  <div class="js-daterangepicker-toggle">
+                    <%= @date_range_label %>
+                    <i class="icon-angle-down"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="event-types-row">
+              <div class="js-event-types-region left">
+                <div class="quick-menu"></div>
+              </div>
+              <div class="js-filters-toggle-region last-col">
+                <div class="filters-toggle scope-user">
+                  <span class="js-filters-toggle right">
+                    <small class="label filter-label">Show Filter</small>
+                    <i class="icon-manage"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>    
+          <div class="filters-row">
+            <div class="wrapper js-nested-filters-region" style="display:none;">
+              <div class="filters row">
+                <div class="row annotation">
+                  <small>Show me events matching:</small>
+                </div>
+                <div class="row">
+                  <div class="filters-list js-filters-list">
+                    <div class="filter">
+                      <div class="name">Status</div>
+                      <span class="label muted js-label events-tab">
+                        Active Events
+                        <i class="icon-angle-down"></i>
+                      </span>
+                      <div class="js-content-region event-options" style="display:none;">
+                        <div class="options-dropdown">
+                          <div style="max-height: 260px;" class="scroller">
+                            <ul class="checkbox-list js-filter-items">
+                              <li class="checkbox-group">
+                                <div class="present-items plm js-present-items-region">
+                                  <ul>
+                                    <li>
+                                      <div class="checkbox">
+                                        <input checked="checked" class="js-checkbox filter-active" id="option-c514" type="checkbox" data-filter-type="active">
+                                        <label for="option-c514">
+                                          Active events
+                                        </label>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="checkbox">
+                                        <input class="js-checkbox filter-cancel" id="option-c515" type="checkbox" data-filter-type="canceled">
+                                        <label for="option-c515">
+                                          Cancelled events
+                                        </label>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="plm js-deleted-items-region"></div>
+                              </li>
+                            </ul>
+                            <div class="empty muted hidden js-search-empty">
+                              No Status match your search.
+                            </div>
+                          </div>
+                          <div class="decision centered">
+                            <button class="mrs js-apply">Apply</button>
+                            <button class="hollow js-close">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="ghost-action js-clear-filters" style="display:none;">
+                    Reset Filters
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="js-summary-region pagination-summary">
+            <div class="row muted">
+              <% unless @grouped.blank? %>
+                <strong class="pagination-entries">
+                  <%= page_entries_info @schedules, entry_name: 'Event' %>
+                </strong>
+              <% end %>  
+            </div>
+          </div>
+          <div class="js-results-region">
+            <div class="schedule">
+              <%= render 'schedules' %>
+            </div>
+          </div>  
+          <div class="schedule-pagination">
+            <%= paginate @schedules, theme: 'custom_theme', remote: true %>   
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

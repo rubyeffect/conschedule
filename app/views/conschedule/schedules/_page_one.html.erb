@@ -1,0 +1,75 @@
+<div id="main-region">
+  <div class="date-time-step">
+    <div class="header">
+      <div class="js-profile-region">
+        <div class="wrapper">
+          <div class="label">
+            <%= @page_info[:main_heading] %>
+            <div class="js-popover-region"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subheader">
+      <div class="wrapper row">
+        <div class="col1of2">
+          <% unless @page_info[:purpose].blank? %>
+            <div class="marker" style="background-color: #fff200"></div>
+            <div class="last-col">
+              <h3><%= @page_info[:purpose] %></h3>
+            </div>
+          <% else %>
+            &nbsp;  
+          <% end %>  
+        </div>
+        <div class="col1of2">
+          <div class="timezone-area">
+            <span class="muted">Times are in</span>
+            <div class="timezone">
+              <%= f.select :user_time_zone, "", {}, {class: "chzn js-timezone-dropdown chzn-done", id: "timezonesdropdown", style: "display: none;"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="iconed-text muted">
+        <% unless @page_info[:instructions].blank? %>
+          <i class="icon-description"></i>
+          <div class="last-col">
+            <%= @page_info[:instructions] %>
+          </div>
+        <% end %>  
+      </div>
+      <div class="iconed-text muted">
+        <% unless @page_info[:location_details].blank? %>
+          <i class="icon-location-target"></i>
+          <div class="last-col">
+            <%= @page_info[:location_details] %>
+          </div>
+        <% end %>  
+      </div>
+      <div class="js-days-region mvl">
+        <div class="week-view">
+          <h2 class="text-center mbl">Select a Day</h2>
+          <div class="js-days-region">
+            <div class="period row"><span class="icon-angle-left js-navigation-prev"></span>
+              <span class="icon-angle-right js-navigation-next"></span>
+              <div class="js-days-body">
+              </div>
+            </div>
+          </div>
+          <div class="spinner js-spinner hidden">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+          <div class="js-weeks-region">
+          </div>
+        </div>
+      </div>
+      <div style="display: block;" class="pagination row js-pagination-bar mbl">
+      </div>
+    </div>
+  </div>
+</div>

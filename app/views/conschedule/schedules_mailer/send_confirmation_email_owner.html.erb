@@ -1,0 +1,77 @@
+<div bgcolor="#ffffff" style="background-color:#ffffff">
+  <div style="padding:20px 0;margin:0 auto;max-width:600px">
+    <table style="width:80%;margin:0 auto;padding-bottom:20px;border-bottom:1px dashed #dadada">
+      <tbody>
+        <tr>
+          <td style="text-align:center">
+            <p>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width:80%;margin:30px auto 0;font-size:16px">
+      <tbody>
+        <tr>
+          <td style="color:#666a7a;line-height:22px">
+            <p style="margin-bottom:12px">
+              Hi <%= Conschedule.contact_name %>,
+            </p>
+            <p style="margin-bottom:12px">
+              A new event has been scheduled.
+            </p>
+            <p style="margin-bottom:12px">
+              <strong style="font-size:14px">
+                Event Type:
+              </strong>
+              <br> <%= @schedule.event_name %>
+            </p>
+            <p style="margin-bottom:12px">
+              <strong style="font-size:14px">
+                Invitee:
+              </strong>
+              <br> <%= @schedule.full_name %>
+            </p>
+            <p style="margin-bottom:12px">
+              <strong style="font-size:14px">
+                Invitee Email:
+              </strong>
+              <br>
+              <a href="mailto:<%= @schedule.email %>" target="_blank"><%= @schedule.email %></a>
+            </p>
+            <p style="margin-bottom:12px">
+              <strong style="font-size:14px">
+                Event Date/Time:
+              </strong>
+              <br>
+              <span tabindex="0">
+                <span><%= @slot_start_time.strftime("%-l:%M%P") %></span>
+              </span> 
+              - <%= @schedule.slot_start_time.strftime("%A, %B %-d, %Y") %> (<%= @schedule.app_tz_offset %>)
+            </p>
+            <p style="margin-bottom:12px">
+              <strong style="font-size:14px">
+                Description:
+              </strong>
+              <br> <%= @schedule.event_description %>
+            </p>
+            <p style="margin-bottom:12px">
+              <strong style="font-size:14px">
+                Location:
+              </strong>
+              <br><%= @schedule.location_details %>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width:80%;margin:30px auto;border-top:1px dashed #dadada">
+      <tbody>
+        <tr>
+          <td style="color:#a8a8a8;padding-top:15px">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<ul class="date-list mbl">
+  <% unless @grouped.blank? %>
+    <% @grouped.each do |key,values| %>
+      <li class="date">
+        <div class="heading">
+          <%= fdtime(key.to_date,:date) %>
+          <% if is_today?(key.to_date,@page_info[:system_time_zone]) %>
+            <strong class="mls">
+              TODAY
+            </strong>
+          <% end %>  
+        </div>  
+        <div class="js-events-region">
+          <div class="event-list">
+            <% values.each do |value| %>
+              <div class="event <%= value.status %> collapsed">
+                <div class="js-title-region js-content-toggle">
+                  <div class="title row">
+                    <div class="duration ">
+                      <div>
+                        <span class="h4 time">
+                          <%= slot_start_end_time(value,"app") %>
+                        </span>
+                        <span class="marker" style="background: #fff200;"></span>
+                      </div>
+                      <div class="locked-time muted">
+                        <%= slot_start_end_time(value,"user") %> (<%= value.user_time_zone %>)
+                      </div>
+                    </div>
+                    <div class="description">
+                      <div class="toggle">
+                        <div class="expand">
+                          Details
+                          <i class="icon-angle-down"></i>
+                        </div>
+                        <div class="collapse">
+                          Close
+                          <i class="icon-close"></i>
+                        </div>
+                      </div> 
+                      <div class="primary">
+                        <a class="h4">
+                          <strong class="user-name">
+                            <%= value.full_name %>
+                          </strong>
+                        </a>
+                        <span class="muted">with you</span>
+                      </div>
+                      <div class="secondary">
+                        Event type
+                        <strong class="schedule-name"><%= value.event_name %></strong>
+                      </div>
+                      <% if value.cancelled?  %>
+                        <div class="pts">
+                          <small class="text-danger">
+                            Cancel Message:
+                          </small>
+                          <small class="muted">
+                            <%= cancel_reason(value) %>
+                          </small>
+                        </div>
+                      <% end %> 
+                    </div>  
+                  </div>  
+                </div>  
+                <div class="details row js-content-body">
+                  <div class="controls">
+                    <% if value.display_action? %>
+                      <a class="action-button js-cancel-event-button" href="" data-sch-id="<%= value.id %>">
+                        <i class="icon-trash"></i>
+                        <span class="label">
+                          Cancel Event
+                        </span>
+                      </a>
+                    <% end %>  
+                  </div>  
+                  <div class="content pvm">
+                    <div class="entry">
+                      <label>
+                        Email
+                      </label>
+                      <div>
+                        <%= value.email %>
+                      </div>
+                    </div>
+                    <div class="entry">
+                      <label>
+                        Location
+                      </label>
+                      <div class="text-wrap">
+                        <%= value.location_details %>
+                      </div>
+                    </div>
+                    <div class="timestamp">
+                      created <%= fdtime(value.created_at,:month_date) %>
+                    </div>   
+                  </div> 
+                </div>
+              </div>
+            <% end %>    
+          </div>
+        </div>  
+      </li>
+    <% end %>
+  <% else %>
+    <div class="centered muted ptl">
+      <% if @filters_applied %>
+        <h3 class="pvl">
+          <%= @filter_message %> matching the filtered criteria.
+        </h3>
+        <h3 class="pbl">
+          Suggestion:
+          <a class="js-reset-filters">reset filters </a>to see all <%= @suggestion_message %>.
+        </h3>
+      <% else %>
+        <h3 class="pvl">
+          <%= @filter_message %>
+        </h3>  
+      <% end %>  
+    </div>  
+  <% end %>
+</ul>

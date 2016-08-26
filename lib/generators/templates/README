@@ -1,0 +1,40 @@
+===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Ensure you have no pending migrations, run:
+
+     rails db:migrate RAILS_ENV=development
+
+  2. Add the following to your routes.rb file:
+  
+     mount Conschedule::Engine, at: "/"
+
+     (NOTE: You may mount it at any path, not just "/")
+
+  3. If you wish to authenticate listing page with Devise, it would look something like:
+
+     authenticate :admin do
+       get "/admin/schedules" => "conschedule/schedules#index"
+     end   
+
+  4. Ensure you have set 'from_address' and 'contact_name' in config/initializers/conschedule.rb
+  
+     config.from_address = "foo@example.com"
+     config.contact_name = "foo" 
+
+  5. If you wish to receive confirmation and cancel mails, ensure you have set following config variables in config/initializers/conschedule.rb:
+
+     config.send_confirmation_mail = true
+     config.send_cancel_mail = true
+     config.to_address = "foo@example.com"
+
+  6. You can copy Conschedule views (for customization) to your app by running:
+
+       rails g conschedule:views
+
+                OR
+
+       rails g conschedule:views -v form listing mailer
+
+===============================================================================

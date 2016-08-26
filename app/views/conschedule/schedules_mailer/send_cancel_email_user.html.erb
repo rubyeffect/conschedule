@@ -1,0 +1,29 @@
+<div bgcolor="#ffffff" style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;min-height:100%;width:100%!important;background-color:#ffffff">
+  <div style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;padding:20px 0;margin:0 auto;max-width:600px">
+    <table style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;width:80%;margin:20px auto 0;width:80%;margin:30px auto 0;font-size:16px">
+      <tbody>
+        <tr style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif">
+          <td style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;color:#666a7a;line-height:22px">
+            <div style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif">
+              <p style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;font-size:16px;margin-top:12px">Hi <%= @schedule.full_name %>,</p>
+              <p style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;font-size:16px;margin-top:12px">
+                Your <%= @schedule.event_name %> with <%= Conschedule.contact_name %> at 
+                <span tabindex="0">
+                  <span><%= @schedule.slot_start_time.strftime("%-l:%M%P") %></span>
+                </span> 
+                (<%= @schedule.user_tz_offset %>) on <%= @slot_date %> has been canceled.
+              </p>
+            </div>
+            <% unless @schedule.cancel_reason.blank? %>
+              <p style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;margin-top:30px;color:#e41600">
+                <strong style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;font-size:14px">Cancellation Reason:</strong>
+                <br style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif">
+                <span style="margin:0;padding:0;font-family:Proxima Nova,proxima-nova,Helvetica,Arial sans-serif;font-size:16px"><%= @schedule.cancel_reason %></span>
+              </p>
+            <% end %>  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

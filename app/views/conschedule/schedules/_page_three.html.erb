@@ -1,0 +1,94 @@
+<div id="main-region">
+  <div>
+    <div class="header">
+      <div class="js-profile-region">
+        <div class="wrapper">
+          <div class="step-back icon-arrow-left js-step-back">&nbsp;</div>
+          <div class="label">
+            <%= @page_info[:main_heading] %>
+            <div class="js-popover-region"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="mbl">
+    <div class="wrapper">
+      <div class="notification js-event-error-block mbl" style="display: none;">
+        <span class="js-event-error-message"></span>
+        <a class="button ghost js-step-back">Find a new spot</a>
+      </div>
+      <div class="row adaptive">
+        <div class="col1of2 hidden-phone prm mbm">
+          <div class="mbs row">
+            <% unless @page_info[:purpose].blank? %>
+              <div class="marker" style="background-color: #fff200"></div>
+              <div class="last-col">
+                <h2><%= @page_info[:purpose] %></h2>
+              </div>
+            <% end %>  
+          </div>
+          <div class="iconed-text emphasis slot-details"></div>
+          <div class="iconed-text tz-details"></div>
+          <div class="iconed-text">
+            <% unless @page_info[:instructions].blank? %>
+              <i class="icon-description"></i>
+              <div class="last-col">
+                <%= @page_info[:instructions] %>
+              </div>
+            <% end %>  
+          </div>
+          <div class="iconed-text">
+            <% unless @page_info[:location_details].blank? %>
+              <i class="icon-location-target"></i>
+              <div class="last-col">
+                <%= @page_info[:location_details] %>
+              </div>
+            <% end %>  
+          </div>
+        </div>
+        <div class="col1of2 plm">
+          <div class="error_explanation"></div>
+          <h2 class="mbm">Enter Details</h2>
+          <%= f.hidden_field :slot_start_time %>
+          <%= f.hidden_field :slot_end_time %>
+          <%= f.hidden_field :app_tz_offset %>
+          <%= f.hidden_field :user_tz_offset %>
+          <div class="row">
+            <div class="col1of2 prs">
+              <div class="field mbm">
+                <label>First Name *</label>
+                <%= f.text_field :first_name, autocomplete: "off", autocorrect: "off", maxlength: "155" %>
+                <span data-error="first_name"></span>
+              </div>
+            </div>
+            <div class="col1of2 pls">
+              <div class="field mbm">
+                <label>Last Name</label>
+                <%= f.text_field :last_name, autocomplete: "off", autocorrect: "off", maxlength: "155" %>
+                <span data-error="last_name"></span>
+              </div>
+            </div>
+          </div>
+          <div class="field mbm">
+            <label>Your phone *</label>
+            <%= f.text_field :phone, autocomplete: "off" %>
+            <span data-error="phone"></span>
+          </div>
+          <div class="field mbm">
+            <label>Your e-mail address *</label>
+            <%= f.text_field :email, autocomplete: "off" %>
+            <span data-error="email"></span>
+          </div>
+          <div class="field mbm">
+            <label>Message</label>
+            <%= f.text_area :message, autocomplete: "off", maxlength: "255", class: "js-input" %>
+            <span data-error="message"></span>
+          </div>
+          <div class="ptm">
+            <%= f.submit "Schedule Event", :class => "button schedule-event" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

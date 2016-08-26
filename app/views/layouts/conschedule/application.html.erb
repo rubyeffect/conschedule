@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= Gon::Base.render_data %>
+    <%= stylesheet_link_tag "conschedule/application", media: "all" %>
+    <%= javascript_include_tag "conschedule/application" %>
+    <%= csrf_meta_tags %>
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+  </head>
+  <body class='dashboard publishers page-loaded'>
+    <%= yield %>
+  </body>
+</html>
