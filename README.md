@@ -94,11 +94,11 @@ The key options available are:
 | `sat_timings`             | Array of times defines start and end time of weekday Saturday.       |
 | `duration`                | Integer defines duration of the slot in minutes.                     |
 | `from_address`            | String for sending confirmation and cancel mails.                    |
-| `send_confirmation_mail`  | Boolean defines wheather a copy of confirmation mail to be sent to the 'to_address'.     |
-| `send_cancel_mail`        | Boolean defines wheather a copy of cancel mail to be sent to the 'to_address'.     |
-| `to_address`              | String for receving confirmation and cancel mails.                |
+| `send_confirmation_mail`  | Boolean defines whether a copy of confirmation mail to be sent to the 'to_address'.     |
+| `send_cancel_mail`        | Boolean defines whether a copy of cancel mail to be sent to the 'to_address'.     |
+| `to_address`              | String for receiving confirmation and cancel mails.                |
 | `contact_name`            | String used in confirmation and cancel mails.                     |
-| `enable_tz`               | Boolean defines wheather the time zone drop down should be active/inactive.     |
+| `enable_tz`               | Boolean defines whether the time zone drop down should be active/inactive.     |
 
 Ensure you have set 'from_address' and 'contact_name' in config/initializers/conschedule.rb
   
