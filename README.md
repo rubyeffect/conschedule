@@ -144,6 +144,10 @@ $ rails generate conschedule:views -v form listing
 
  * Code: `git clone git://github.com/rubyeffect/conschedule.git`
  * Home: <http://github.com/rubyeffect/conschedule>
+ 
+## Authored by
+
+Sakilam Sandeep (sakilamsandeep@rubyeffect.com)
 
 ## About RubyEffect
 
